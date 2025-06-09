@@ -10,8 +10,6 @@ const App: React.FC = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<TodoHome />} />
-          {/* <Route path="/active" element={<TodoHome />} />
-          <Route path="/completed" element={<TodoHome />} /> */}
         </Routes>
       </BrowserRouter>
     </StoreProvider>
