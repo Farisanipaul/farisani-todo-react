@@ -58,7 +58,7 @@ const todoSlice = createSlice({
         Omit<Todo, "createdAt" | "completed" | "description">
       >
     ) => {
-      state.todos.map((todo) =>
+      state.todos = state.todos.map((todo) =>
         todo.id === action.payload.id
           ? { ...todo, title: action.payload.title }
           : todo

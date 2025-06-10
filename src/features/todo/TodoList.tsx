@@ -65,5 +65,3 @@ export const TodoList: React.FC = () => {
     </main>
   );
 };
-
-// export default TodoList;

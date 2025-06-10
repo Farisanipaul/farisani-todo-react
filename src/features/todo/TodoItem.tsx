@@ -23,7 +23,7 @@ const TodoItem: React.FC<{ todo: Todo }> = ({ todo }) => {
   );
   const updateItem = useCallback(
     (id: string, title: string) => dispatch(updateTodo({ id, title })),
-    [dispatch]
+    [dispatch, title]
   );
 
   const handleDoubleClick = useCallback(() => {
@@ -36,6 +36,7 @@ const TodoItem: React.FC<{ todo: Todo }> = ({ todo }) => {
 
   const handleUpdate = useCallback(
     (title: string) => {
+      console.log("Updating: ", title);
       if (title.length === 0) removeItem();
       else updateItem(id, title);
 
