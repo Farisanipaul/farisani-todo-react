@@ -20,8 +20,8 @@ const Header: React.FC = () => {
         onSubmit={addItem}
         label="New Todo Input"
         placeholder="What needs to be done?"
-        defaultValue="Type title..."
         onBlur={() => {}}
+        defaultValue={undefined}
       />
       {/* <button>
         <img src="" />
