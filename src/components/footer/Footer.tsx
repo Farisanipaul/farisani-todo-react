@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useMemo } from "react";
-import { useLocation } from "react-router-dom";
 import classnames from "classnames";
 import { useAppSelector } from "@/hooks/useAppSelector";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
@@ -15,8 +14,6 @@ import "./Footer.css";
 const Footer: React.FC = () => {
   const todo = useAppSelector((state) => state.todo);
   const dispatch = useAppDispatch();
-
-  const { pathname: route } = useLocation();
 
   useEffect(() => {
     if (todo.status === "loading") {
@@ -54,7 +51,7 @@ const Footer: React.FC = () => {
       <ul className="filters" data-testid="footer-navigation">
         <li>
           <button
-            className={classnames({ selected: route === "/" })}
+            className={classnames({ selected: todo.filter === "all" })}
             onClick={() => handleFilterClick("all")}
           >
             All
@@ -62,7 +59,7 @@ const Footer: React.FC = () => {
         </li>
         <li>
           <button
-            className={classnames({ selected: route === "/active" })}
+            className={classnames({ selected: todo.filter === "active" })}
             onClick={() => handleFilterClick("active")}
           >
             Active
@@ -70,7 +67,7 @@ const Footer: React.FC = () => {
         </li>
         <li>
           <button
-            className={classnames({ selected: route === "/completed" })}
+            className={classnames({ selected: todo.filter === "completed" })}
             onClick={() => handleFilterClick("completed")}
           >
             Completed
