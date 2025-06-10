@@ -4,6 +4,7 @@ import Input from "@/components/input/Input";
 import type { Todo } from "@/types/todo";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { removeTodo, toggleTodo, updateTodo } from "./todoSlice";
+import "./TodoItem.css";
 
 const TodoItem: React.FC<{ todo: Todo }> = ({ todo }) => {
   const dispatch = useAppDispatch();
@@ -44,11 +45,8 @@ const TodoItem: React.FC<{ todo: Todo }> = ({ todo }) => {
   );
 
   return (
-    <li
-      className={classnames({ completed: todo.completed })}
-      data-testid="todo-item"
-    >
-      <div className="view">
+    <li className="todo-container">
+      <div className="item">
         {isWritable ? (
           <Input
             onSubmit={handleUpdate}
