@@ -1,4 +1,6 @@
 import { useCallback, type KeyboardEvent } from "react";
+import "./Input.css";
+import Search from "@/assets/search.svg";
 
 const sanitize = (value: string) => {
   const map: Record<string, string> = {
@@ -21,7 +23,7 @@ interface InputProps {
   onSubmit: (value: string) => void;
   placeholder: string;
   label: string;
-  defaultValue: string;
+  defaultValue: string | number | undefined;
   onBlur: () => void;
 }
 
@@ -52,6 +54,7 @@ const Input: React.FC<InputProps> = ({
 
   return (
     <div className="input-container">
+      <img src={Search} />
       <input
         className="new-todo"
         id="todo-input"
