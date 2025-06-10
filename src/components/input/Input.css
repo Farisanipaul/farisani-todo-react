@@ -1,0 +1,24 @@
+.input-container {
+  display: flex;
+  padding: 0.1rem;
+  gap: 0.2rem;
+  border: 1px solid #999;
+  box-sizing: border-box;
+}
+
+.input-container img {
+  margin-left: 20px;
+}
+
+.input-container input {
+  margin: 0;
+  width: 100%;
+  font-size: 24px;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: 1.4em;
+  border: 0;
+  outline: none;
+  color: inherit;
+  padding: 6px;
+}
