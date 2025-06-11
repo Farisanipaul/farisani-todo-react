@@ -8,7 +8,7 @@ footer {
   justify-content: space-between;
 }
 
-.round-edges {
+.filters li button {
   border-radius: 50px;
 }
 
