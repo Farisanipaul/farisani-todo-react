@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
         </li>
       </ul>
       <button
-        className="clear-completed"
+        className="btn-clear-completed"
         disabled={activeTodos.length === todo.todos.length}
         onClick={removeCompleted}
       >
