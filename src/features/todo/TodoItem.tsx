@@ -53,6 +53,7 @@ const TodoItem: React.FC<{ todo: Todo }> = ({ todo }) => {
             defaultValue={title}
             onBlur={handleBlur}
             placeholder={""}
+            showSearch={false}
           />
         ) : (
           <>

@@ -24,6 +24,7 @@ interface InputProps {
   onSubmit: (value: string) => void;
   placeholder: string;
   defaultValue: string | number | undefined;
+  showSearch: boolean | undefined;
   onBlur: () => void;
 }
 
@@ -31,6 +32,7 @@ const Input: React.FC<InputProps> = ({
   onSubmit,
   placeholder,
   defaultValue,
+  showSearch,
   onBlur,
 }) => {
   const [isTyping, setIsTyping] = useState<boolean>(false);
@@ -62,7 +64,7 @@ const Input: React.FC<InputProps> = ({
 
   return (
     <div className={classnames("input-container", { typing: isTyping })}>
-      <img src={Search} />
+      {showSearch && <img src={Search} />}
       <input
         className="new-todo"
         type="text"

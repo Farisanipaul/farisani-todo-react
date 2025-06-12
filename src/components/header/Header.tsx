@@ -26,6 +26,7 @@ const Header: React.FC = () => {
         placeholder="What needs to be done?"
         onBlur={() => {}}
         defaultValue={undefined}
+        showSearch={true}
       />
       {/* <button>
         <img src="" />

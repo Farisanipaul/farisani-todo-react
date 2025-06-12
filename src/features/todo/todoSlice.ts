@@ -1,4 +1,5 @@
 import type { Todo, TodoFilter, TodosState } from "@/types/todo";
+import { shuffleColors } from "@/utils/shuffle-colors";
 import storage from "@/utils/storage";
 import {
   createAsyncThunk,
@@ -24,18 +25,6 @@ const getTodoFilter = createAsyncThunk(
     return filter;
   }
 );
-
-const COLORS = ["#ECDFE9", "#EDEBDE", "#E0EBDD", "#EBE2FD", "#FDE8C9"];
-
-const shuffleColors = (lastColor?: string) => {
-  if (lastColor && COLORS.includes(lastColor)) {
-    const currentIndex = COLORS.indexOf(lastColor);
-    const nextIndex = (currentIndex + 1) % COLORS.length;
-    return COLORS[nextIndex];
-  }
-
-  return COLORS[0];
-};
 
 const initialState: TodosState = {
   todos: [],
