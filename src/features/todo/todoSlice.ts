@@ -25,6 +25,18 @@ const getTodoFilter = createAsyncThunk(
   }
 );
 
+const COLORS = ["#ECDFE9", "#EDEBDE", "#E0EBDD", "#EBE2FD", "#FDE8C9"];
+
+const shuffleColors = (lastColor?: string) => {
+  if (lastColor && COLORS.includes(lastColor)) {
+    const currentIndex = COLORS.indexOf(lastColor);
+    const nextIndex = (currentIndex + 1) % COLORS.length;
+    return COLORS[nextIndex];
+  }
+
+  return COLORS[0];
+};
+
 const initialState: TodosState = {
   todos: [],
   filter: "all",
@@ -41,21 +53,26 @@ const todoSlice = createSlice({
     },
     addTodo: (
       state,
-      action: PayloadAction<Omit<Todo, "id" | "createdAt" | "completed">>
+      action: PayloadAction<
+        Omit<Todo, "id" | "createdAt" | "completed" | "color">
+      >
     ) => {
+      const lastColor = state.todos[state.todos.length - 1]?.color;
+      const color = shuffleColors(lastColor);
       state.todos.push({
         id: uuidv4(),
         title: action.payload.title,
         completed: false,
         createdAt: new Date().toISOString(),
         description: action.payload.description,
+        color: color,
       });
       storage.save("todos", state.todos);
     },
     updateTodo: (
       state,
       action: PayloadAction<
-        Omit<Todo, "createdAt" | "completed" | "description">
+        Omit<Todo, "createdAt" | "completed" | "description" | "color">
       >
     ) => {
       state.todos = state.todos.map((todo) =>

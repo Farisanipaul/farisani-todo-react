@@ -4,6 +4,7 @@ export interface Todo {
   description: string;
   completed: boolean;
   createdAt: string;
+  color: string;
 }
 
 export type LoadingStatus = "idle" | "loading" | "failed";

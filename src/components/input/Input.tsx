@@ -23,7 +23,6 @@ const hasValidMin = (value: string, min: number) => {
 interface InputProps {
   onSubmit: (value: string) => void;
   placeholder: string;
-  label: string;
   defaultValue: string | number | undefined;
   onBlur: () => void;
 }
@@ -31,7 +30,6 @@ interface InputProps {
 const Input: React.FC<InputProps> = ({
   onSubmit,
   placeholder,
-  label,
   defaultValue,
   onBlur,
 }) => {

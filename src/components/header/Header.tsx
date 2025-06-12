@@ -23,7 +23,6 @@ const Header: React.FC = () => {
       <p>You currently have {remainingTodos} pending {remainingTodos <= 1 ? "task" : "tasks"}!</p>
       <Input
         onSubmit={addItem}
-        label="New Todo Input"
         placeholder="What needs to be done?"
         onBlur={() => {}}
         defaultValue={undefined}

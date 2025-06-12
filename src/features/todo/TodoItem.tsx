@@ -10,7 +10,7 @@ const TodoItem: React.FC<{ todo: Todo }> = ({ todo }) => {
 
   const [isWritable, setIsWritable] = useState(false);
 
-  const { title, completed, id } = todo;
+  const { title, completed, id, color } = todo;
 
   const toggleItem = useCallback(() => {
     console.log("Toggling item: ");
@@ -45,12 +45,11 @@ const TodoItem: React.FC<{ todo: Todo }> = ({ todo }) => {
   );
 
   return (
-    <li className="todo-container">
+    <li className="todo-container" style={{background: color}}>
       <div className="item">
         {isWritable ? (
           <Input
             onSubmit={handleUpdate}
-            label="Edit Todo Input"
             defaultValue={title}
             onBlur={handleBlur}
             placeholder={""}
