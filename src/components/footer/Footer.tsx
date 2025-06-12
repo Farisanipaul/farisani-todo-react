@@ -45,9 +45,9 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="footer" data-testid="footer">
-      <span className="todo-count">{`${activeTodos.length} ${
+      {/* <span className="todo-count">{`${activeTodos.length} ${
         activeTodos.length === 1 ? "item" : "items"
-      } left!`}</span>
+      } left!`}</span> */}
       <ul className="filters" data-testid="footer-navigation">
         <li>
           <button

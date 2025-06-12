@@ -1,4 +1,5 @@
-import { useCallback, type KeyboardEvent } from "react";
+import { useCallback, useState, type KeyboardEvent } from "react";
+import classnames from "classnames";
 import "./Input.css";
 import Search from "@/assets/search.svg";
 
@@ -34,9 +35,18 @@ const Input: React.FC<InputProps> = ({
   defaultValue,
   onBlur,
 }) => {
+  const [isTyping, setIsTyping] = useState<boolean>(false);
+
   const handleBlur = useCallback(() => {
-    if (onBlur) onBlur();
+    if (onBlur) {
+      setIsTyping(false);
+      onBlur();
+    }
   }, [onBlur]);
+
+  const handleFocus = useCallback(() => {
+    setIsTyping(true);
+  }, [isTyping])
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent<HTMLInputElement>) => {
@@ -53,22 +63,19 @@ const Input: React.FC<InputProps> = ({
   );
 
   return (
-    <div className="input-container">
+    <div className={classnames("input-container", { typing: isTyping })}>
       <img src={Search} />
       <input
         className="new-todo"
-        id="todo-input"
         type="text"
         data-testid="text-input"
         autoFocus
         placeholder={placeholder}
         defaultValue={defaultValue}
         onBlur={handleBlur}
+        onFocus={handleFocus}
         onKeyDown={handleKeyDown}
       />
-      <label className="visually-hidden" htmlFor="todo-input">
-        {label}
-      </label>
     </div>
   );
 };

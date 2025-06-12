@@ -11,6 +11,10 @@
   margin-left: 20px;
 }
 
+.typing {
+  border: 3px solid #000;
+}
+
 .input-container input {
   margin: 0;
   width: 100%;

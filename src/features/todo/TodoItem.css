@@ -1,9 +1,10 @@
 .todo-container {
   list-style: none;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  height: 100px;
 }
 
-.item {
+.todo-container .item {
   padding: 0.5rem;
   display: flex;
   flex-direction: row;

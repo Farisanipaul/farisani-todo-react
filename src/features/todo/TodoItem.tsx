@@ -1,5 +1,4 @@
 import { memo, useState, useCallback } from "react";
-import classnames from "classnames";
 import Input from "@/components/input/Input";
 import type { Todo } from "@/types/todo";
 import { useAppDispatch } from "@/hooks/useAppDispatch";

@@ -6,7 +6,9 @@
 .todo-list-container ul li {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: relative;
   font-size: 24px;
+  margin-bottom: 10px;
 }
 
